@@ -1,14 +1,3 @@
-import streamlit as st
-import pandas as pd
-import joblib
-from joblib import dump, load
-import xgboost as xgb
-from xgboost import XGBClassifier
-from sklearn.preprocessing import LabelEncoder
-from category_encoders import TargetEncoder
-import numpy as np
-
-
 streamlit==1.12.0
 pandas==1.3.4
 joblib==1.2.0
