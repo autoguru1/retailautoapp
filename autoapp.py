@@ -1,17 +1,18 @@
 # Importing the Libraries
 import streamlit as st
 import pandas as pd
-import joblib
+#import joblib
+from joblib import dump, load
 from xgboost import XGBClassifier
 from sklearn.preprocessing import LabelEncoder
 from category_encoders import TargetEncoder
 import numpy as np
 
 # Load the encoders and model
-te_sales_program = joblib.load('te_sales_program.pkl')
-le_payment_frequency = joblib.load('le_payment_frequency.pkl')
-te_applicant_state = joblib.load('te_applicant_state.pkl')
-model = joblib.load('model.pkl')
+te_sales_program = load('te_sales_program.pkl')
+le_payment_frequency =load('le_payment_frequency.pkl')
+te_applicant_state = load('te_applicant_state.pkl')
+model = load('model.pkl')
 
 # Functions for encoding
 def transform_with_label_encoder(le, series):
