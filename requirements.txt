@@ -1,6 +1,5 @@
 category_encoders==2.6.1
 numpy==1.23.5
-numpy==1.15.1
 numpy==1.20.3
 numpy==1.22.0
 numpy==1.24.3
