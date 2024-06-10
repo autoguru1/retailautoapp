@@ -1,7 +1,7 @@
 # Importing the Libraries
 import streamlit as st
 import pandas as pd
-import pickle
+import pickle as pk
 #import joblib
 #from joblib import dump, load
 from sklearn.preprocessing import LabelEncoder
@@ -17,17 +17,17 @@ import numpy as np
 
 # Load the encoders and model using pickle
 with open('te_sales_program.pkl', 'rb') as file:
-    #te_sales_program = pickle.load(file)
-    te_sales_program = pd.read_pickle(file)
+    te_sales_program = pk.load(file)
+    
 
 with open('le_payment_frequency.pkl', 'rb') as file:
-    le_payment_frequency = pd.read_pickle(file)
+    le_payment_frequency = pk.load(file)
 
 with open('te_applicant_state.pkl', 'rb') as file:
-    te_applicant_state = pd.read_pickle(file)
+    te_applicant_state = pk.load(file)
 
 with open('mymodel.sav', 'rb') as file:
-    model = pd.read_pickle(file)
+    model = pk.load(file)
     
     
 
