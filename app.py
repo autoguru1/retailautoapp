@@ -6,7 +6,7 @@ import pickle
 #from joblib import dump, load
 from sklearn.preprocessing import LabelEncoder
 from category_encoders.target_encoder import TargetEncoder
-from category_encoders import TargetEncoder
+#from category_encoders import TargetEncoder
 import numpy as np
 import os
 
