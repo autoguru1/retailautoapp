@@ -9,6 +9,7 @@ from category_encoders.target_encoder import TargetEncoder
 #from category_encoders import TargetEncoder
 import numpy as np
 import os
+import xgboost
 
 # Load the encoders and model
 te_sales_program = joblib.load('te_sales_program.pkl')
