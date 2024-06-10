@@ -15,18 +15,20 @@ import numpy as np
 #te_applicant_state = joblib.load('te_applicant_state.pkl')    
 #model = joblib.load('model.pkl')
 
+# Function to load pickled files
+def load_pickle(file_path):
+    with open(file_path, 'rb') as file:
+        return pickle.load(file)
+
 # Load the encoders and model using pickle
-with open('te_sales_program.pkl', 'rb') as file:
-    te_sales_program = pickle.load(file)
-
-with open('le_payment_frequency.pkl', 'rb') as file:
-    le_payment_frequency = pickle.load(file)
-
-with open('te_applicant_state.pkl', 'rb') as file:
-    te_applicant_state = pickle.load(file)
-
-with open('mymodel.sav', 'rb') as file:
-    model = pickle.load(file)
+try:
+    te_sales_program = load_pickle('te_sales_program.pkl')
+    le_payment_frequency = load_pickle('le_payment_frequency.pkl')
+    te_applicant_state = load_pickle('te_applicant_state.pkl')
+    model = load_pickle('mymodel.sav')
+except Exception as e:
+    st.error(f"Error loading pickle file: {e}")
+    st.stop()
 
 
 # Functions for encoding
