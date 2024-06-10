@@ -1,13 +1,14 @@
 # Importing the Libraries
 import streamlit as st
 import pandas as pd
-import pickle as pk
+import pickle
 #import joblib
 #from joblib import dump, load
 from sklearn.preprocessing import LabelEncoder
 from category_encoders.target_encoder import TargetEncoder
 from category_encoders import TargetEncoder
 import numpy as np
+import os
 
 # Load the encoders and model
 #te_sales_program = joblib.load('te_sales_program.pkl')
@@ -15,19 +16,20 @@ import numpy as np
 #te_applicant_state = joblib.load('te_applicant_state.pkl')    
 #model = joblib.load('model.pkl')
 
+# Function to load pickled files
+def load_pickle(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as file:
+            return pickle.load(file)
+    else:
+        st.error(f"File {file_path} not found.")
+        st.stop()
+
 # Load the encoders and model using pickle
-with open('te_sales_program.pkl', 'rb') as file:
-    te_sales_program = pk.load(file)
-    
-
-with open('le_payment_frequency.pkl', 'rb') as file:
-    le_payment_frequency = pk.load(file)
-
-with open('te_applicant_state.pkl', 'rb') as file:
-    te_applicant_state = pk.load(file)
-
-with open('mymodel.sav', 'rb') as file:
-    model = pk.load(file)
+te_sales_program = load_pickle('te_sales_program.pkl')
+le_payment_frequency = load_pickle('le_payment_frequency.pkl')
+te_applicant_state = load_pickle('te_applicant_state.pkl')
+model = load_pickle('mymodel.sav')
     
     
 
