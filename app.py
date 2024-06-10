@@ -1,18 +1,33 @@
 # Importing the Libraries
 import streamlit as st
 import pandas as pd
-import joblib
-from joblib import dump, load
+import pickle
+#import joblib
+#from joblib import dump, load
 from sklearn.preprocessing import LabelEncoder
 from category_encoders.target_encoder import TargetEncoder
 from category_encoders import TargetEncoder
 import numpy as np
 
 # Load the encoders and model
-te_sales_program = joblib.load('te_sales_program.pkl')
-le_payment_frequency = joblib.load('le_payment_frequency.pkl')
-te_applicant_state = joblib.load('te_applicant_state.pkl')
-model = joblib.load('model.pkl')
+#te_sales_program = joblib.load('te_sales_program.pkl')
+#le_payment_frequency = joblib.load('le_payment_frequency.pkl')
+#te_applicant_state = joblib.load('te_applicant_state.pkl')    
+#model = joblib.load('model.pkl')
+
+# Load the encoders and model using pickle
+with open('te_sales_program.pkl', 'rb') as file:
+    te_sales_program = pickle.load(file)
+
+with open('le_payment_frequency.pkl', 'rb') as file:
+    le_payment_frequency = pickle.load(file)
+
+with open('te_applicant_state.pkl', 'rb') as file:
+    te_applicant_state = pickle.load(file)
+
+with open('mymodel.sav', 'rb') as file:
+    model = pickle.load(file)
+
 
 # Functions for encoding
 def transform_with_label_encoder(le, series):
