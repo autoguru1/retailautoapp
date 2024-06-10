@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 from joblib import dump, load
-from xgboost import XGBClassifier
 from sklearn.preprocessing import LabelEncoder
 from category_encoders.target_encoder import TargetEncoder
 from category_encoders import TargetEncoder
